@@ -12,11 +12,11 @@ DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "[*] Installing reflector and updating mirrorlist..."
-sudo pacman -Sy --needed reflector rsync
+sudo pacman -Sy --needed --noconfirm reflector rsync
 sudo reflector --verbose --sort rate --save /etc/pacman.d/mirrorlist --download-timeout 60
 
 echo "[*] Installing packages from $PKGLIST..."
-sudo pacman -Syu --needed - < "$PKGLIST"
+sudo pacman -Syu --needed --noconfirm - < "$PKGLIST"
 
 # Clone or update dotfiles
 if [[ ! -d "$DOTFILES_DIR" || ! -f "$DOTFILES_DIR/HEAD" ]]; then
