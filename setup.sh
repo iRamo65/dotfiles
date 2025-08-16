@@ -4,7 +4,7 @@
 sudo pacman -Syu --needed < pkglist.txt
 
 # Clone or update dotfiles
-if [[ ! -d "$HOME/.dotfiles" ]]; then
+if [[ ! -d "$HOME/dotfiles" ]]; then
     echo "[*] Cloning dotfiles..."
     git clone --bare git@github.com:yourusername/dotfiles.git $HOME/.dotfiles
 else
