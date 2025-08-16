@@ -1,9 +1,13 @@
 #!/bin/bash
 set -e  # exit on error
 
-cd "$HOME"   # <-- ensure we are in a valid directory
+# Get absolute path of script location
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-PKGLIST="pkglist.txt"
+# Work inside $HOME
+cd "$HOME"
+
+PKGLIST="$SCRIPT_DIR/pkglist.txt"
 DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
@@ -11,7 +15,7 @@ echo "[*] Installing reflector and updating mirrorlist..."
 sudo pacman -Sy --needed reflector
 sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-echo "[*] Installing packages..."
+echo "[*] Installing packages from $PKGLIST..."
 sudo pacman -Syu --needed - < "$PKGLIST"
 
 # Clone or update dotfiles
