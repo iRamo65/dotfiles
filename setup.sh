@@ -2,31 +2,23 @@
 set -e  # exit on error
 
 PKGLIST="pkglist.txt"
-DOTFILES_REPO_SSH="git@github.com:iRamo65/dotfiles.git"
-DOTFILES_REPO_HTTPS="https://github.com/iRamo65/dotfiles.git"
+DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "[*] Installing packages..."
 sudo pacman -Syu --needed - < "$PKGLIST"
 
-# Check if dotfiles repo already exists
+# Clone or update dotfiles
 if [[ ! -d "$DOTFILES_DIR" ]]; then
-    echo "[*] Cloning dotfiles repo..."
-
-    # Test if SSH works
-    if ssh -o BatchMode=yes -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
-        echo "    -> Using SSH"
-        git clone --bare "$DOTFILES_REPO_SSH" "$DOTFILES_DIR"
-    else
-        echo "    -> SSH not set up, falling back to HTTPS"
-        git clone --bare "$DOTFILES_REPO_HTTPS" "$DOTFILES_DIR"
-    fi
+    echo "[*] Cloning dotfiles repo (HTTPS)..."
+    git clone --bare "$DOTFILES_REPO" "$DOTFILES_DIR"
 else
     echo "[*] Updating existing dotfiles repo..."
     /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" fetch
     /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" pull
 fi
 
+# Checkout dotfiles into $HOME
 echo "[*] Checking out dotfiles..."
 if ! /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" checkout; then
     echo "[!] Conflict detected. Backing up existing files..."
@@ -40,6 +32,7 @@ if ! /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" checkout; then
     /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" checkout
 fi
 
+# Configure repo to hide untracked files
 echo "[*] Setting git config for dotfiles..."
 /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" config --local status.showUntrackedFiles no
 
