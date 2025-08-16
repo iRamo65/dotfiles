@@ -6,4 +6,3 @@ The script ranks the fastest mirros and updates the mirror list, then installs t
 # Requirements
 - zsh (I use zsh so there is a config for it)
 - git (ofc)
-- rsync (for reflector when ranking mirrors)
