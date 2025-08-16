@@ -5,6 +5,10 @@ PKGLIST="pkglist.txt"
 DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
+echo "[*] Installing reflector and updating mirrorlist..."
+sudo pacman -Sy --needed reflector
+sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
 echo "[*] Installing packages..."
 sudo pacman -Syu --needed - < "$PKGLIST"
 
