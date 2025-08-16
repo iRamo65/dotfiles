@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e  # exit on error
 
+cd "$HOME"   # <-- ensure we are in a valid directory
+
 PKGLIST="pkglist.txt"
 DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
