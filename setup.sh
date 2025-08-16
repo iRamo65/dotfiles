@@ -13,8 +13,9 @@ echo "[*] Installing packages..."
 sudo pacman -Syu --needed - < "$PKGLIST"
 
 # Clone or update dotfiles
-if [[ ! -d "$DOTFILES_DIR" ]]; then
+if [[ ! -d "$DOTFILES_DIR" || ! -f "$DOTFILES_DIR/HEAD" ]]; then
     echo "[*] Cloning dotfiles repo (HTTPS)..."
+    rm -rf "$DOTFILES_DIR"   # clean up in case it's a broken folder
     git clone --bare "$DOTFILES_REPO" "$DOTFILES_DIR"
 else
     echo "[*] Updating existing dotfiles repo..."
