@@ -12,7 +12,7 @@ DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "[*] Installing reflector and updating mirrorlist..."
-sudo pacman -Sy --needed reflector
+sudo pacman -Sy --needed reflector rsync
 sudo reflector --verbose --sort rate --save /etc/pacman.d/mirrorlist --download-timeout 60
 
 echo "[*] Installing packages from $PKGLIST..."
