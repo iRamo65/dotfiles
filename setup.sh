@@ -13,7 +13,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "[*] Installing reflector and updating mirrorlist..."
 sudo pacman -Sy --needed reflector
-sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --verbose --sort rate --save /etc/pacman.d/mirrorlist --download-timeout 60
 
 echo "[*] Installing packages from $PKGLIST..."
 sudo pacman -Syu --needed - < "$PKGLIST"
