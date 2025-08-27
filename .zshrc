@@ -13,7 +13,7 @@ PROMPT='%F{green}%n@%m %F{white}%~ %#%f '
 # Aliases
 alias pkm='nvim /mnt/c/PKM/'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias env_upgrade='pacman -Qqe > pkglist.txt && config add . && config commit -m "Updated pkglist (auto)" && config push'
+alias env_upgrade='cd ~ && pacman -Qqe > pkglist.txt && config add . && config commit -m "Updated pkglist (auto)" && config push'
 autoload -Uz compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 compinit
