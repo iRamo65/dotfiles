@@ -48,3 +48,5 @@ echo "[*] Setting git config for dotfiles..."
 /usr/bin/git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" config --local status.showUntrackedFiles no
 
 echo " ✔ Dotfiles setup complete!"
+
+mv ~/dofiles ~/.dotfiles
