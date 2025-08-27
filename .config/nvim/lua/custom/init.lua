@@ -5,12 +5,21 @@ require 'custom.options'
 require 'custom.keybinds'
 
 require('telekasten').setup {
-  home = vim.fn.expand '/mnt/c/PKM/', -- Put the name of your notes directory here
+  home = vim.fn.expand '/mnt/c/PKM/', -- Put the name of your notes directory here,
+  dailies = vim.fn.expand '/mnt/c/PKM/001_JOURNAL/Daily/',
+  weeklies = vim.fn.expand '/mnt/c/PKM/001_JOURNAL/weekly/',
+  templates = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/',
+
+  -- Template for daily notes
+  template_new_daily = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/daily.md',
 }
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- 👇 make telekasten use markdown parser
+vim.treesitter.language.register('markdown', 'telekasten')
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true

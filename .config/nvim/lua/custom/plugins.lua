@@ -22,6 +22,14 @@ return {
     'mattn/calendar-vim',
   },
 
+  --NOTE: Image rendering
+  {
+    'nvim-telescope/telescope-media-files.nvim',
+  },
+
+  {
+    'nvim-telescope/telescope-symbols.nvim',
+  },
   -- NOTE: neotree and its dependicies
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -68,6 +76,8 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      filetypes = { 'markdown', 'telekasten' },
+    },
   },
 }
