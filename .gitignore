@@ -1,0 +1,7 @@
+# Ignore eveything
+*
+
+# But keep these files
+!.gitignore
+!.zshrc
+.config/
