@@ -460,8 +460,8 @@ require('render-markdown').setup {
   completions = { blink = { enabled = true } },
   render_modes = true,
   checkbox = {
-    unchecked = { icon = '✘ ' },
+    unchecked = { icon = '󰄗' },
     checked = { icon = '✔ ' },
-    custom = { todo = { rendered = '◯ ' } },
+    custom = { todo = { rendered = '✘' } },
   },
 }
