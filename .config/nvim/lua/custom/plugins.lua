@@ -13,6 +13,9 @@ return {
     lazy = false,
   },
 
+  -- NOTE: Vim-table-mode
+  { 'dhruvasagar/vim-table-mode' },
+
   -- NOTE: Telekasten and its dependicies
   {
     'renerocksai/telekasten.nvim',

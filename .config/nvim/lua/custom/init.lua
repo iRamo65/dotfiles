@@ -12,6 +12,7 @@ require('telekasten').setup {
 
   -- Template for daily notes
   template_new_daily = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/daily.md',
+  template_new_lecture_draft = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/new_lecture_draft.md',
 }
 
 -- disable netrw at the very start of your init.lua
@@ -282,7 +283,7 @@ require('neo-tree').setup {
   },
   nesting_rules = {},
   filesystem = {
-
+    use_trash = true, -- 🚨 send files to system Trash
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
       hide_dotfiles = true,
@@ -388,7 +389,16 @@ require('neo-tree').setup {
       },
     },
 
-    commands = {}, -- Add a custom command or override a global one using the same function name
+    commands = {
+      trash = function(state)
+        local node = state.tree:get_node()
+        if node.type == 'file' or node.type == 'directory' then
+          vim.fn.jobstart({ 'trash-put', node.path }, {
+            detach = true,
+          })
+        end
+      end,
+    },
   },
   buffers = {
     follow_current_file = {
@@ -400,11 +410,10 @@ require('neo-tree').setup {
     show_unloaded = true,
     window = {
       mappings = {
-        ['d'] = 'buffer_delete',
         ['bd'] = 'buffer_delete',
         ['<bs>'] = 'navigate_up',
         ['.'] = 'set_root',
-
+        ['d'] = 'trash', -- use trash-cli instead of permanent delete
         ['o'] = {
 
           'show_help',
