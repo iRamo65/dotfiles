@@ -22,3 +22,6 @@ vim.keymap.set('i', '[[', '<cmd>Telekasten insert_link<CR>')
 vim.keymap.set('n', '<leader>nt', function()
   require('telekasten').new_templated_note()
 end, { desc = 'New templated note (pick template)' })
+
+-- Clearing current highlights
+vim.keymap.set('n', '<leader>n,', '<cmd>nohlsearch<CR>', { noremap = true, silent = true })
