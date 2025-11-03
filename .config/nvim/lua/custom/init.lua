@@ -12,7 +12,11 @@ require('telekasten').setup {
 
   -- Template for daily notes
   template_new_daily = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/daily.md',
+  template_new_weekly = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/weekly.md',
   template_new_lecture_draft = vim.fn.expand '/mnt/c/PKM/999_TEMPLATES/new_lecture_draft.md',
+
+  -- Settings
+  week_start = 'sunday',
 }
 
 -- disable netrw at the very start of your init.lua
