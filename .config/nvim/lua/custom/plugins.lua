@@ -83,4 +83,7 @@ return {
       filetypes = { 'markdown', 'telekasten' },
     },
   },
+  {
+    'ThePrimeagen/vim-be-good',
+  },
 }
