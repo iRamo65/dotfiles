@@ -1,6 +1,9 @@
 base
 base-devel
+cmatrix
+fastfetch
 git
+gitlogue
 nano
 neovim
 openssh
@@ -21,6 +24,7 @@ ripgrep
 rsync
 sudo
 tmux
+trash-cli
 ttf-0xproto-nerd
 ttf-3270-nerd
 ttf-agave-nerd
