@@ -86,4 +86,7 @@ return {
   {
     'ThePrimeagen/vim-be-good',
   },
+  {
+    'ikouchiha47/games.nvim',
+  },
 }

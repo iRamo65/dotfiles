@@ -4,6 +4,7 @@
   "calendar-vim": { "branch": "master", "commit": "2083a41e2d310f9bbbbf644517f30e901f1fb04d" },
   "conform.nvim": { "branch": "master", "commit": "6208aefd675939cc7c8f1a57176135974dad269f" },
   "fidget.nvim": { "branch": "main", "commit": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a" },
+  "games.nvim": { "branch": "master", "commit": "459f55376ca665b7d39775e1be9596e3fb33db45" },
   "gitsigns.nvim": { "branch": "main", "commit": "cdafc320f03f2572c40ab93a4eecb733d4016d07" },
   "guess-indent.nvim": { "branch": "main", "commit": "84a4987ff36798c2fc1169cbaff67960aed9776f" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
@@ -37,6 +38,7 @@
   "telescope.nvim": { "branch": "master", "commit": "83a3a713d6b2d2a408491a1b959e55a7fa8678e8" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "tokyonight.nvim": { "branch": "main", "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd" },
+  "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "vim-table-mode": { "branch": "master", "commit": "bb025308a45c67c7c8f0763ba37bc2ee3f534df0" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }

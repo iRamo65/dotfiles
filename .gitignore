@@ -1,6 +1,11 @@
 # Ignore eveything
 *
 
+#igore lazy-lock
+!/config
+!/.config/nvim
+.config/nvim/lazy-lock.json
+
 # But keep these files
 !.gitignore
 !.zshrc
