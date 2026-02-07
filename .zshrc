@@ -18,3 +18,6 @@ autoload -Uz compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 compinit
 # End of lines added by compinstall
+
+# Created by `pipx` on 2026-02-02 22:52:15
+export PATH="$PATH:/home/iRamo/.local/bin"
