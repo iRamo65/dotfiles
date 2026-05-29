@@ -8,6 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$HOME"
 
 PKGLIST="$SCRIPT_DIR/pkglist.txt"
+AUR_PKGLIST="$SCRIPT_DIR/aur-pkglist.txt"
 DOTFILES_REPO="https://github.com/iRamo65/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
@@ -17,6 +18,18 @@ sudo reflector --verbose --sort rate --save /etc/pacman.d/mirrorlist --download-
 
 echo "[*] Installing packages from $PKGLIST..."
 sudo pacman -Syu --needed --noconfirm - < "$PKGLIST"
+
+echo "[*] Installing yay"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd "$HOME"
+
+echo "[*] Removing leftover files"
+rm -rf yay
+
+echo "[*] Installing packages from $AUR_PKGLIST"
+yay -S --noconfirm - < "$AUR_PKGLIST"
 
 # Clone or update dotfiles
 if [[ ! -d "$DOTFILES_DIR" || ! -f "$DOTFILES_DIR/HEAD" ]]; then
