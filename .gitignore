@@ -2,15 +2,10 @@
 *
 
 #igore lazy-lock
-!.config/
-!.config/calcure
-!.config/calcure/*
-!.config/nvim/
-!.config/nvim/*
-!.config/nvim/lua/*
-!.config/nvim/lua/custom*
-!.config/nvim/lua/kickstart/*
-~.config/nvim/lazy-lock.json
+!/.config
+!/.config/nvim/**
+!/.config/calcure/**
+.config/nvim/lazy-lock.json
 
 # But keep these files
 !.gitignore
